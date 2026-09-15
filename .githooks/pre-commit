@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# BookieBeats — pre-commit structural guard (credentials, SSN, EIN). Public repo: no borrower data ever.
+# Blocks any commit that would expose client PII. Runs on BOTH machines (via
+# core.hooksPath = .githooks) and catches manual *and* Claude commits.
+# Genuine false positive? Bypass once with:  git commit --no-verify
+set -u
+
+root="$(git rev-parse --show-toplevel)"
+staged="$(git diff --cached --name-only)"
+added="$(git diff --cached --no-color -U0 | grep -E '^\+' | grep -vE '^\+\+\+')"
+fail=0
+
+# 1) HARD BLOCK: client-data directories must never be committed (defense vs `git add -f`).
+bad="$(printf '%s\n' "$staged" | grep -E '^(library/|deals/)' || true)"
+if [ -n "$bad" ]; then
+  echo "BLOCKED: client-data paths are staged (borrower PII lives here):"
+  printf '%s\n' "$bad" | sed 's/^/     /'
+  fail=1
+fi
+
+# 2) BLOCK obvious identifiers in ADDED content (SSN pattern).
+if printf '%s\n' "$added" | grep -Eq '[0-9]{3}-[0-9]{2}-[0-9]{4}'; then
+  echo "BLOCKED: added content contains an SSN-like pattern (NNN-NN-NNNN)."
+  fail=1
+fi
+
+# --- shared content checks ---------------------------------------------------------------
+# Canonical source: MachineOps/scripts/githooks/lib/guard-common.sh, vendored here so the hook
+# still works in a fresh clone on a machine with no MachineOps checkout. guard-audit.sh reports
+# any copy whose md5 has drifted; guard-sync.sh refreshes it. Replaced the inline denylist loop
+# 2026-07-28 so there is ONE implementation of the borrower-term and figure checks, not five.
+. "$root/.githooks/lib/guard-common.sh"
+guard_init
+guard_check_ein
+guard_check_credentials
+guard_check_denylist
+guard_check_figures
+[ "$g_fail" -ne 0 ] && fail=1
+
+if [ "$fail" -ne 0 ]; then
+  echo ""
+  echo "Commit aborted to protect borrower PII (GLBA). Keep client data under library/ or deals/"
+  echo "(gitignored) and borrower-identifying detail in the local library/_INDEX.md — never in tracked files."
+  echo "Genuine false positive? Re-run with:  git commit --no-verify"
+  exit 1
+fi
+exit 0

@@ -1,0 +1,15 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+
+# local, uncommitted PII denylist used by .githooks/pre-commit
+.pii-denylist
+
+# private local working records that must not sync
+_local/
+
+# Python build cache
+__pycache__/
+*.pyc

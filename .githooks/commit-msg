@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+# Pinnacle commit-MESSAGE confidentiality guard (GLBA / borrower NPI).
+#
+# Companion to .githooks/pre-commit, which scans staged FILE content. This scans the
+# commit MESSAGE — the recurring blind spot. A borrower P&L, cap rate, or relational
+# fingerprint reproduced in a message sails past pre-commit, gitleaks, and the
+# --no-verify guard untouched: that is exactly the class that once leaked through a message.
+# "Writing about borrower data is writing borrower data" — the message is in scope.
+# Active via core.hooksPath = .githooks (no separate install).
+#
+# Genuine false positive — your OWN firm/household figure, or PUBLIC macro data?
+#   git commit --no-verify        (rounding or rephrasing is usually the better fix)
+set -u
+
+root="$(git rev-parse --show-toplevel)"
+
+# $1 = path to the proposed message. Cut the `git commit -v` scissors+diff, then strip
+# comment lines, so we scan the human message only (staged content is pre-commit's job).
+raw="$(sed '/^#.*-\{2,\}.*>8.*-\{2,\}/,$d' "$1" 2>/dev/null || cat "$1")"
+msg="$(printf '%s\n' "$raw" | git stripspace --strip-comments 2>/dev/null)"
+[ -z "${msg//[[:space:]]/}" ] && exit 0                 # empty message: let git handle it
+case "$msg" in "Merge "*|"Revert \""*) exit 0 ;; esac   # auto-generated messages
+
+msg_lc="$(printf '%s' "$msg" | tr 'A-Z' 'a-z')"
+fail=0
+blk(){ echo "BLOCKED (commit message): $1" >&2; fail=1; }
+wrn(){ echo "note   (commit message): $1" >&2; }
+# match ERE, case-insensitive, no `grep -q` (MSYS can SIGABRT on it)
+has(){ [ -n "$(printf '%s' "$msg" | grep -Eio "$1" 2>/dev/null | head -1)" ]; }
+first(){ printf '%s' "$msg" | grep -Eio "$1" 2>/dev/null | head -1; }
+
+# 1) Borrower-term denylist (local, gitignored) — literal case-insensitive substring,
+#    same source of truth as the pre-commit content guard.
+deny="$root/.pii-denylist"
+if [ -f "$deny" ]; then
+  while IFS= read -r term || [ -n "$term" ]; do
+    term="$(printf '%s' "$term" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+    [ -z "$term" ] && continue
+    case "$term" in \#*) continue ;; esac
+    tl="$(printf '%s' "$term" | tr 'A-Z' 'a-z')"
+    case "$msg_lc" in *"$tl"*) blk "references a denylisted borrower term (\"$term\")." ;; esac
+  done < "$deny"
+fi
+
+# 2) Structured identifiers.
+has '[0-9]{3}-[0-9]{2}-[0-9]{4}'  && blk "contains an SSN-like pattern (NNN-NN-NNNN)."
+has '\b[0-9]{2}-[0-9]{7}\b'       && blk "contains an EIN-like pattern (NN-NNNNNNN)."
+
+# 3) Single-deal narration frames — the item-30 tell; ~never legitimate in a message.
+#    Write the generalized lesson, not the deal.
+for f in 'on a deal where' 'a deal where' 'a representative (deal|borrower|credit|transaction)' \
+         'seen in the book' 'this (borrower|guarantor|sponsor)'; do
+  has "$f" && blk "uses a single-deal narration frame (\"$(first "$f")\") — generalize it."
+done
+
+# 4) Per-deal financial DETAIL. House notation carries NO comma ($X.XXMM / $XXXM), so match
+#    comma-grouped AND decimal/per-unit/rate forms. Block when a precise figure co-occurs with
+#    deal context (the known leak shape: figures + cap rate + price/SF); warn on a bare figure
+#    (your own firm/household or public numbers are fine — that is the --no-verify case).
+figrx='\$[0-9]{1,3}(,[0-9]{3})+(\.[0-9]+)?|\$[0-9]+\.[0-9]{2,}[a-z]*|\$ ?[0-9.]+ ?/ ?(sf|unit|door|key|acre|pad|ft)|[0-9]+\.[0-9]+ ?%'
+ctxrx='borrower|guarantor|collateral|cap ?rate|\bdscr\b|\bltv\b|rent ?roll|apprais|sponsor|per (sf|unit|door|key)|price per|\bnoi\b|occupanc'
+if has "$figrx"; then
+  hit="$(printf '%s' "$msg" | grep -Eio "$figrx" 2>/dev/null | head -3 | tr '\n' ' ')"
+  if has "$ctxrx"; then
+    blk "reproduces per-deal financial detail ($hit) beside deal context — round it or state the generalized point."
+  else
+    wrn "contains a precise figure ($hit) — if it is a BORROWER figure, round/remove it; own or public data is fine."
+  fi
+fi
+
+# 5) Named specific institution (Firm KB is client-neutral) — warn only; the message is not wiki content.
+inst="$root/.institution-blocklist"
+if [ -f "$inst" ]; then
+  while IFS= read -r term || [ -n "$term" ]; do
+    term="$(printf '%s' "$term" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+    [ -z "$term" ] && continue
+    case "$term" in \#*) continue ;; esac
+    tl="$(printf '%s' "$term" | tr 'A-Z' 'a-z')"
+    case "$msg_lc" in *"$tl"*) wrn "names a specific institution (\"$term\"); keep firm records client-neutral." ;; esac
+  done < "$inst"
+fi
+
+if [ "$fail" -ne 0 ]; then
+  echo "" >&2
+  echo "Commit message blocked to protect borrower confidentiality (GLBA). The message is in scope" >&2
+  echo "for the PII firewall exactly like file content. Fix the message; for a genuine own/public-data" >&2
+  echo "false positive re-run with:  git commit --no-verify" >&2
+  exit 1
+fi
+exit 0

@@ -1,0 +1,9 @@
+# .pii-denylist — LOCAL ONLY (gitignored). Copy to ".pii-denylist" (install.sh does this).
+# The pre-commit hook blocks any commit whose ADDED lines contain any term below.
+# Put borrower legal names, guarantor surnames, property addresses, and entity names here.
+# One term per line. Lines starting with # are ignored. Matching is case-insensitive substring.
+#
+# Example:
+#   Acme Holdings LLC
+#   123 Main St
+#   Smith

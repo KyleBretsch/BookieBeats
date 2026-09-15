@@ -1,0 +1,15 @@
+{
+  "source": "Sweeps2026 tab ARB DESK (sheetId 394391295), values as displayed 2026-09-14; inputs are the cells' raw numberValue",
+  "block1": {"inputs": {"oddsA": 105, "amtA": 40, "oddsB": 124, "bet": "Cash Bet"},
+             "expected": {"H5_stakeB": "36.61", "H6_profit": "5.39", "C7_roi_pct": "7.04"}},
+  "block2": {"inputs": {"venue": "KALSHI", "odds": 119, "amount": 2500, "price_c": 47, "ex": "Maker", "bet": "Cash Bet"},
+             "expected": {"H12_breakeven_c": "53.90", "H13_size": "5475", "H14_cash": "2597.12", "C15_profit": "377.88", "H15_roi_pct": "7.41"}},
+  "block3": {"inputs": {"venue": "KALSHI", "price_c": 75.45, "size": 71.03, "ex": "Taker", "odds": 410, "bet": "Cash Bet"},
+             "expected": {"H20_breakeven_odds": "330.3", "H21_stake": "13.93", "H22_total": "68.45", "C23_profit": "2.58", "H23_roi_pct": "3.77"}},
+  "block4": {"inputs": {"vA": "KALSHI", "vB": "KALSHI", "priceA_c": 75.45, "sizeA": 2915, "priceB_c": 13.79, "exA": "Maker", "exB": "Pre-Match / Maker"},
+             "note": "exB is the stale value the sheet holds today; it matches no fee branch and resolves to the 7% taker rate. With exB = Maker the sheet would show total 2616.87, profit 298.13, ROI 11.39.",
+             "expected": {"H28_breakeven_c": "22.98", "H29_sizeB": "2915", "H30_total": "2635.06", "C31_profit": "279.94", "H31_roi_pct": "10.62"}},
+  "block5": [{"price_c": 47, "expected": {"G35_kalshi_maker": "110.8", "I35_kalshi_taker": "105.1"}},
+             {"price_c": 85, "expected": {"G36_novig_prematch": "-566.7", "I36_novig_live": "-584.1"}},
+             {"price_c": 64.52, "expected": {"G37_prophetx": "-185.6"}}]
+}

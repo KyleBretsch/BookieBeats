@@ -1,0 +1,2078 @@
+{
+  "sheets": [
+    {
+      "properties": {
+        "sheetId": 394391295,
+        "title": "ARB DESK",
+        "gridProperties": {
+          "rowCount": 38,
+          "columnCount": 9,
+          "frozenRowCount": 1,
+          "hideGridlines": true
+        }
+      },
+      "data": [
+        {
+          "rowData": [
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "ARB DESK"
+                  },
+                  "formattedValue": "ARB DESK"
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "SPORTSBOOK \u2022 SPORTSBOOK"
+                  },
+                  "formattedValue": "SPORTSBOOK \u2022 SPORTSBOOK"
+                }
+              ]
+            },
+            {},
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Side A Odds"
+                  },
+                  "formattedValue": "Side A Odds"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "numberValue": 105
+                  },
+                  "formattedValue": "+105.0",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "+#,##0.0;-#,##0.0;+0.0"
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Bet Type"
+                  },
+                  "formattedValue": "Bet Type"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Cash Bet"
+                  },
+                  "formattedValue": "Cash Bet",
+                  "dataValidation": {
+                    "condition": {
+                      "type": "ONE_OF_LIST",
+                      "values": [
+                        {
+                          "userEnteredValue": "Cash Bet"
+                        },
+                        {
+                          "userEnteredValue": "Free Bet"
+                        }
+                      ]
+                    },
+                    "strict": true,
+                    "showCustomUi": true
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Side A Amount"
+                  },
+                  "formattedValue": "Side A Amount"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "numberValue": 40
+                  },
+                  "formattedValue": "$40.00",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "CURRENCY",
+                      "pattern": "$#,##0.00;-$#,##0.00"
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Side B Stake"
+                  },
+                  "formattedValue": "Side B Stake"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF(OR($H$4=\"\",$C$4=\"\",$C$5=\"\",$C$6=\"\"),\"\",LET(a_dec,IF($C$4>0,1+$C$4/100,1+100/ABS($C$4)),b_dec,IF($C$6>0,1+$C$6/100,1+100/ABS($C$6)),ROUND(IF($H$4=\"Free Bet\",$C$5*(a_dec-1)/b_dec,$C$5*a_dec/b_dec),2)))"
+                  },
+                  "formattedValue": "$36.61",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "CURRENCY",
+                      "pattern": "$#,##0.00;-$#,##0.00"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Side B Odds"
+                  },
+                  "formattedValue": "Side B Odds"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "numberValue": 124
+                  },
+                  "formattedValue": "+124.0",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "+#,##0.0;-#,##0.0;+0.0"
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Guaranteed Profit"
+                  },
+                  "formattedValue": "Guaranteed Profit"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($H$5=\"\",\"\",MIN(ROUND($C$5*(IF($C$4>0,$C$4/100,100/ABS($C$4)))-$H$5,2),ROUND($H$5*(IF($C$6>0,$C$6/100,100/ABS($C$6)))-IF($H$4=\"Free Bet\",0,$C$5),2)))"
+                  },
+                  "formattedValue": "$5.39",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "CURRENCY",
+                      "pattern": "$#,##0.00;-$#,##0.00"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "ROI On Cash"
+                  },
+                  "formattedValue": "ROI On Cash"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF(OR($H$6=\"\",$H$5=\"\"),\"\",$H$6/IF($H$4=\"Free Bet\",$H$5,$C$5+$H$5))"
+                  },
+                  "formattedValue": "7.04%",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "PERCENT",
+                      "pattern": "0.00%"
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Free Bet Conversion"
+                  },
+                  "formattedValue": "Free Bet Conversion"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF(OR($H$4<>\"Free Bet\",$H$6=\"\"),\"\",$H$6/$C$5)"
+                  },
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "PERCENT",
+                      "pattern": "0.00%"
+                    }
+                  }
+                }
+              ]
+            },
+            {},
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "SPORTSBOOK \u2022 KALSHI"
+                  },
+                  "formattedValue": "SPORTSBOOK \u2022 KALSHI",
+                  "dataValidation": {
+                    "condition": {
+                      "type": "ONE_OF_LIST",
+                      "values": [
+                        {
+                          "userEnteredValue": "SPORTSBOOK \u2022 KALSHI"
+                        },
+                        {
+                          "userEnteredValue": "SPORTSBOOK \u2022 NOVIG"
+                        },
+                        {
+                          "userEnteredValue": "SPORTSBOOK \u2022 PROPHETX"
+                        }
+                      ]
+                    },
+                    "strict": true,
+                    "showCustomUi": true
+                  }
+                }
+              ]
+            },
+            {},
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Sportsbook Odds"
+                  },
+                  "formattedValue": "Sportsbook Odds"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "numberValue": 119
+                  },
+                  "formattedValue": "+119.0",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "+#,##0.0;-#,##0.0;+0.0"
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Bet Type"
+                  },
+                  "formattedValue": "Bet Type"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Cash Bet"
+                  },
+                  "formattedValue": "Cash Bet",
+                  "dataValidation": {
+                    "condition": {
+                      "type": "ONE_OF_LIST",
+                      "values": [
+                        {
+                          "userEnteredValue": "Cash Bet"
+                        },
+                        {
+                          "userEnteredValue": "Free Bet"
+                        }
+                      ]
+                    },
+                    "strict": true,
+                    "showCustomUi": true
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Sportsbook Amount"
+                  },
+                  "formattedValue": "Sportsbook Amount"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "numberValue": 2500
+                  },
+                  "formattedValue": "$2,500.00",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "CURRENCY",
+                      "pattern": "$#,##0.00;-$#,##0.00"
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Break Even Price"
+                  },
+                  "formattedValue": "Break Even Price"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($A$9=\"SPORTSBOOK \u2022 KALSHI\",IF(OR($C$11=\"\",$C$12=\"\",$C$14=\"\",$H$11=\"\"),\"\",LET(stake_amount,$C$12,win_profit,ROUND($C$12*IF($C$11>0,$C$11/100,100/ABS($C$11)),2),stake_at_risk,IF($H$11=\"Free Bet\",0,stake_amount),target_contracts,win_profit+stake_at_risk,floor_contracts,MAX(0,FLOOR(target_contracts,1)),ceil_contracts,MAX(0,CEILING(target_contracts,1)),fee_rate,IF($C$14=\"MLB Maker\",0.00875,IF($C$14=\"MLB Taker\",0.035,IF($C$14=\"Maker\",0.0175,0.07))),debit_for,LAMBDA(n,px,CEILING(ROUND(n*px+CEILING(ROUND(fee_rate*n*px*(1-px),8),0.0001),8),0.01)),threshold_for,LAMBDA(n,IF(n<=0,0,LET(limit_amount,MIN(win_profit,n-stake_at_risk),raw_root,IF(limit_amount<=0,0,((1+fee_rate)-SQRT(MAX(0,(1+fee_rate)^2-4*fee_rate*limit_amount/n)))/(2*fee_rate)),start_price,MAX(0.0001,FLOOR(raw_root,0.0001)-0.05),prices,SEQUENCE(501,1,start_price,0.0001),debits,MAP(prices,LAMBDA(px,debit_for(n,px))),IFERROR(MAX(FILTER(prices,(prices<=0.9999)*(debits<=limit_amount))),0)))),100*MAX(threshold_for(floor_contracts),threshold_for(ceil_contracts)))),IF($A$9=\"SPORTSBOOK \u2022 NOVIG\",IF(OR($C$11=\"\",$C$12=\"\",$C$14=\"\",$H$11=\"\"),\"\",LET(W,ROUND($C$12*IF($C$11>0,$C$11/100,100/ABS($C$11)),2),R,IF($H$11=\"Free Bet\",0,$C$12),n,W+R,c,IF($C$14=\"Futures Taker\",0.06,IF(OR($C$14=\"Live Taker\",$C$14=\"Taker\"),0.03,0)),IF(n<=0,\"\",LET(q,W/n,root,IF(c=0,q,((1+c)-SQRT(MAX(0,(1+c)^2-4*c*q)))/(2*c)),100*MAX(0,MIN(0.9999,FLOOR(root,0.0001))))))),IF(OR($C$11=\"\",$C$12=\"\",$H$11=\"\"),\"\",LET(W,ROUND($C$12*IF($C$11>0,$C$11/100,100/ABS($C$11)),2),R,IF($H$11=\"Free Bet\",0,$C$12),f,0.02,IF(W+R<=0,\"\",100*MAX(0,MIN(0.9999,FLOOR(W*(1-f)/(W+R-W*f),0.0001))))))))"
+                  },
+                  "formattedValue": "53.90\u00a2",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "0.00\"\u00a2\""
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($A$9=\"SPORTSBOOK \u2022 NOVIG\",\"Novig Price\",IF($A$9=\"SPORTSBOOK \u2022 PROPHETX\",\"ProphetX Price\",\"Kalshi Price\"))"
+                  },
+                  "formattedValue": "Kalshi Price"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "numberValue": 47
+                  },
+                  "formattedValue": "47.00\u00a2",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "0.00\"\u00a2\""
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($A$9=\"SPORTSBOOK \u2022 NOVIG\",\"Novig Stake\",IF($A$9=\"SPORTSBOOK \u2022 PROPHETX\",\"ProphetX Stake\",\"Contracts To Buy\"))"
+                  },
+                  "formattedValue": "Contracts To Buy"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($A$9=\"SPORTSBOOK \u2022 KALSHI\",IF(OR($C$11=\"\",$C$12=\"\",$C$13=\"\",$C$14=\"\",$H$11=\"\"),\"\",LET(stake_amount,$C$12,win_profit,ROUND($C$12*IF($C$11>0,$C$11/100,100/ABS($C$11)),2),stake_at_risk,IF($H$11=\"Free Bet\",0,stake_amount),target_contracts,win_profit+stake_at_risk,floor_contracts,MAX(0,FLOOR(target_contracts,1)),ceil_contracts,MAX(0,CEILING(target_contracts,1)),test_price,$C$13/100,fee_rate,IF($C$14=\"MLB Maker\",0.00875,IF($C$14=\"MLB Taker\",0.035,IF($C$14=\"Maker\",0.0175,0.07))),debit_for,LAMBDA(n,CEILING(ROUND(n*test_price+CEILING(ROUND(fee_rate*n*test_price*(1-test_price),8),0.0001),8),0.01)),floor_guarantee,MIN(win_profit-debit_for(floor_contracts),floor_contracts-debit_for(floor_contracts)-stake_at_risk),ceil_guarantee,MIN(win_profit-debit_for(ceil_contracts),ceil_contracts-debit_for(ceil_contracts)-stake_at_risk),IF(floor_guarantee>=ceil_guarantee,floor_contracts,ceil_contracts))),IF(OR($C$11=\"\",$C$12=\"\",$C$13=\"\",$H$11=\"\"),\"\",LET(W,ROUND($C$12*IF($C$11>0,$C$11/100,100/ABS($C$11)),2),R,IF($H$11=\"Free Bet\",0,$C$12),p,$C$13/100,IF($A$9=\"SPORTSBOOK \u2022 NOVIG\",ROUND((W+R)*p,2),ROUND((W+R)/(1-0.02*(1-p))*p,2)))))"
+                  },
+                  "formattedValue": "5,475.0",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "#,##0.0"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($A$9=\"SPORTSBOOK \u2022 NOVIG\",\"Novig Execution\",IF($A$9=\"SPORTSBOOK \u2022 PROPHETX\",\"ProphetX Execution\",\"Kalshi Execution\"))"
+                  },
+                  "formattedValue": "Kalshi Execution"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Maker"
+                  },
+                  "formattedValue": "Maker",
+                  "dataValidation": {
+                    "condition": {
+                      "type": "ONE_OF_RANGE",
+                      "values": [
+                        {
+                          "userEnteredValue": "='ARB LISTS'!$A$1:$A$4"
+                        }
+                      ]
+                    },
+                    "strict": true,
+                    "showCustomUi": true
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($A$9=\"SPORTSBOOK \u2022 NOVIG\",\"Novig Cash Required\",IF($A$9=\"SPORTSBOOK \u2022 PROPHETX\",\"ProphetX Cash Required\",\"Kalshi Cash Required\"))"
+                  },
+                  "formattedValue": "Kalshi Cash Required"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($A$9=\"SPORTSBOOK \u2022 KALSHI\",IF($H$13=\"\",\"\",CEILING(ROUND($H$13*($C$13/100)+CEILING(ROUND(IF($C$14=\"MLB Maker\",0.00875,IF($C$14=\"MLB Taker\",0.035,IF($C$14=\"Maker\",0.0175,0.07)))*$H$13*($C$13/100)*(1-$C$13/100),8),0.0001),8),0.01)),IF($H$13=\"\",\"\",IF($A$9=\"SPORTSBOOK \u2022 NOVIG\",IF($C$14=\"\",\"\",LET(S,$H$13,p,$C$13/100,c,IF($C$14=\"Futures Taker\",0.06,IF(OR($C$14=\"Live Taker\",$C$14=\"Taker\"),0.03,0)),ROUND(S+ROUND(c*p*(1-p)*(S/p),5),2))),$H$13)))"
+                  },
+                  "formattedValue": "$2,597.12",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "CURRENCY",
+                      "pattern": "$#,##0.00;-$#,##0.00"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Guaranteed Profit"
+                  },
+                  "formattedValue": "Guaranteed Profit"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($A$9=\"SPORTSBOOK \u2022 KALSHI\",IF($H$14=\"\",\"\",MIN(ROUND(ROUND($C$12*IF($C$11>0,$C$11/100,100/ABS($C$11)),2)-$H$14,2),ROUND($H$13-$H$14-IF($H$11=\"Free Bet\",0,$C$12),2))),IF(OR($H$13=\"\",$H$14=\"\"),\"\",LET(W,ROUND($C$12*IF($C$11>0,$C$11/100,100/ABS($C$11)),2),R,IF($H$11=\"Free Bet\",0,$C$12),S,$H$13,p,$C$13/100,nb,S/p,IF($A$9=\"SPORTSBOOK \u2022 NOVIG\",MIN(ROUND(W-$H$14,2),ROUND(nb-$H$14-R,2)),LET(G,nb-S,fee,ROUND(0.02*G,2),MIN(ROUND(W-S,2),ROUND(G-fee-R,2)))))))"
+                  },
+                  "formattedValue": "$377.88",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "CURRENCY",
+                      "pattern": "$#,##0.00;-$#,##0.00"
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($H$11=\"Free Bet\",\"Free Bet Conversion\",\"ROI On Total Cash\")"
+                  },
+                  "formattedValue": "ROI On Total Cash"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF(OR($C$15=\"\",$H$14=\"\"),\"\",IF($H$11=\"Free Bet\",$C$15/$C$12,$C$15/($C$12+$H$14)))"
+                  },
+                  "formattedValue": "7.41%",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "PERCENT",
+                      "pattern": "0.00%"
+                    }
+                  }
+                }
+              ]
+            },
+            {},
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "KALSHI \u2022 SPORTSBOOK"
+                  },
+                  "formattedValue": "KALSHI \u2022 SPORTSBOOK",
+                  "dataValidation": {
+                    "condition": {
+                      "type": "ONE_OF_LIST",
+                      "values": [
+                        {
+                          "userEnteredValue": "KALSHI \u2022 SPORTSBOOK"
+                        },
+                        {
+                          "userEnteredValue": "NOVIG \u2022 SPORTSBOOK"
+                        },
+                        {
+                          "userEnteredValue": "PROPHETX \u2022 SPORTSBOOK"
+                        }
+                      ]
+                    },
+                    "strict": true,
+                    "showCustomUi": true
+                  }
+                }
+              ]
+            },
+            {},
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($A$17=\"NOVIG \u2022 SPORTSBOOK\",\"Novig Price\",IF($A$17=\"PROPHETX \u2022 SPORTSBOOK\",\"ProphetX Price\",\"Kalshi Price\"))"
+                  },
+                  "formattedValue": "Kalshi Price"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "numberValue": 75.45
+                  },
+                  "formattedValue": "75.45\u00a2",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "0.00\"\u00a2\""
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Bet Type"
+                  },
+                  "formattedValue": "Bet Type"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Cash Bet"
+                  },
+                  "formattedValue": "Cash Bet",
+                  "dataValidation": {
+                    "condition": {
+                      "type": "ONE_OF_LIST",
+                      "values": [
+                        {
+                          "userEnteredValue": "Cash Bet"
+                        },
+                        {
+                          "userEnteredValue": "Free Bet"
+                        }
+                      ]
+                    },
+                    "strict": true,
+                    "showCustomUi": true
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($A$17=\"NOVIG \u2022 SPORTSBOOK\",\"Novig Stake\",IF($A$17=\"PROPHETX \u2022 SPORTSBOOK\",\"ProphetX Stake\",\"Kalshi Contracts\"))"
+                  },
+                  "formattedValue": "Kalshi Contracts"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "numberValue": 71.03
+                  },
+                  "formattedValue": "71.0",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "#,##0.0"
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Break Even Odds"
+                  },
+                  "formattedValue": "Break Even Odds"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF(OR($C$19=\"\",$C$20=\"\",$C$21=\"\",$H$19=\"\"),\"\",IF($H$19=\"Free Bet\",\"\",LET(tA,$A$17,nvA,tA=\"NOVIG \u2022 SPORTSBOOK\",pxA,tA=\"PROPHETX \u2022 SPORTSBOOK\",pA,$C$19/100,n,IF(OR(nvA,pxA),$C$20/pA,$C$20),rateA,IF($C$21=\"MLB Maker\",0.00875,IF($C$21=\"MLB Taker\",0.035,IF($C$21=\"Maker\",0.0175,0.07))),cA,IF($C$21=\"Futures Taker\",0.06,IF(OR($C$21=\"Live Taker\",$C$21=\"Taker\"),0.03,0)),cashA,IF(pxA,$C$20,IF(nvA,$C$20+ROUND(cA*pA*(1-pA)*n,5),CEILING(ROUND(n*pA+CEILING(ROUND(rateA*n*pA*(1-pA),8),0.0001),8),0.01))),Awin,IF(pxA,n*(1-pA)-ROUND(0.02*n*(1-pA),2),n-cashA),m,IF($C$22=\"\",0,IF($C$22>0,$C$22/100,100/ABS($C$22))),IF(OR(n<=0,Awin<=0),\"\",LET(mm,cashA/Awin,IF(mm>=1,ROUNDUP(100*mm,1),-ROUNDDOWN(100/mm,1)))))))"
+                  },
+                  "formattedValue": "+330.3",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "+#,##0.0;-#,##0.0;+0.0"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($A$17=\"NOVIG \u2022 SPORTSBOOK\",\"Novig Execution\",IF($A$17=\"PROPHETX \u2022 SPORTSBOOK\",\"ProphetX Execution\",\"Kalshi Execution\"))"
+                  },
+                  "formattedValue": "Kalshi Execution"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Taker"
+                  },
+                  "formattedValue": "Taker",
+                  "dataValidation": {
+                    "condition": {
+                      "type": "ONE_OF_RANGE",
+                      "values": [
+                        {
+                          "userEnteredValue": "='ARB LISTS'!$B$1:$B$4"
+                        }
+                      ]
+                    },
+                    "strict": true,
+                    "showCustomUi": true
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Sportsbook Stake"
+                  },
+                  "formattedValue": "Sportsbook Stake"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF(OR($C$19=\"\",$C$20=\"\",$C$21=\"\",$C$22=\"\",$H$19=\"\"),\"\",LET(tA,$A$17,nvA,tA=\"NOVIG \u2022 SPORTSBOOK\",pxA,tA=\"PROPHETX \u2022 SPORTSBOOK\",pA,$C$19/100,n,IF(OR(nvA,pxA),$C$20/pA,$C$20),rateA,IF($C$21=\"MLB Maker\",0.00875,IF($C$21=\"MLB Taker\",0.035,IF($C$21=\"Maker\",0.0175,0.07))),cA,IF($C$21=\"Futures Taker\",0.06,IF(OR($C$21=\"Live Taker\",$C$21=\"Taker\"),0.03,0)),cashA,IF(pxA,$C$20,IF(nvA,$C$20+ROUND(cA*pA*(1-pA)*n,5),CEILING(ROUND(n*pA+CEILING(ROUND(rateA*n*pA*(1-pA),8),0.0001),8),0.01))),Awin,IF(pxA,n*(1-pA)-ROUND(0.02*n*(1-pA),2),n-cashA),m,IF($C$22=\"\",0,IF($C$22>0,$C$22/100,100/ABS($C$22))),IF(OR(n<=0,m<=0),\"\",ROUND(IF($H$19=\"Free Bet\",(Awin+cashA)/m,(Awin+cashA)/(1+m)),2))))"
+                  },
+                  "formattedValue": "$13.93",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "CURRENCY",
+                      "pattern": "$#,##0.00;-$#,##0.00"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Sportsbook Odds"
+                  },
+                  "formattedValue": "Sportsbook Odds"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "numberValue": 410
+                  },
+                  "formattedValue": "+410.0",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "+#,##0.0;-#,##0.0;+0.0"
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Total Cash Required"
+                  },
+                  "formattedValue": "Total Cash Required"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF(OR($C$19=\"\",$C$20=\"\",$C$21=\"\",$H$19=\"\",$H$21=\"\"),\"\",LET(tA,$A$17,nvA,tA=\"NOVIG \u2022 SPORTSBOOK\",pxA,tA=\"PROPHETX \u2022 SPORTSBOOK\",pA,$C$19/100,n,IF(OR(nvA,pxA),$C$20/pA,$C$20),rateA,IF($C$21=\"MLB Maker\",0.00875,IF($C$21=\"MLB Taker\",0.035,IF($C$21=\"Maker\",0.0175,0.07))),cA,IF($C$21=\"Futures Taker\",0.06,IF(OR($C$21=\"Live Taker\",$C$21=\"Taker\"),0.03,0)),cashA,IF(pxA,$C$20,IF(nvA,$C$20+ROUND(cA*pA*(1-pA)*n,5),CEILING(ROUND(n*pA+CEILING(ROUND(rateA*n*pA*(1-pA),8),0.0001),8),0.01))),Awin,IF(pxA,n*(1-pA)-ROUND(0.02*n*(1-pA),2),n-cashA),m,IF($C$22=\"\",0,IF($C$22>0,$C$22/100,100/ABS($C$22))),ROUND(cashA+IF($H$19=\"Free Bet\",0,$H$21),2)))"
+                  },
+                  "formattedValue": "$68.45",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "CURRENCY",
+                      "pattern": "$#,##0.00;-$#,##0.00"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Guaranteed Profit"
+                  },
+                  "formattedValue": "Guaranteed Profit"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF(OR($H$21=\"\",$H$22=\"\"),\"\",LET(tA,$A$17,nvA,tA=\"NOVIG \u2022 SPORTSBOOK\",pxA,tA=\"PROPHETX \u2022 SPORTSBOOK\",pA,$C$19/100,n,IF(OR(nvA,pxA),$C$20/pA,$C$20),rateA,IF($C$21=\"MLB Maker\",0.00875,IF($C$21=\"MLB Taker\",0.035,IF($C$21=\"Maker\",0.0175,0.07))),cA,IF($C$21=\"Futures Taker\",0.06,IF(OR($C$21=\"Live Taker\",$C$21=\"Taker\"),0.03,0)),cashA,IF(pxA,$C$20,IF(nvA,$C$20+ROUND(cA*pA*(1-pA)*n,5),CEILING(ROUND(n*pA+CEILING(ROUND(rateA*n*pA*(1-pA),8),0.0001),8),0.01))),Awin,IF(pxA,n*(1-pA)-ROUND(0.02*n*(1-pA),2),n-cashA),m,IF($C$22=\"\",0,IF($C$22>0,$C$22/100,100/ABS($C$22))),MIN(ROUND(Awin-IF($H$19=\"Free Bet\",0,$H$21),2),ROUND($H$21*m-cashA,2))))"
+                  },
+                  "formattedValue": "$2.58",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "CURRENCY",
+                      "pattern": "$#,##0.00;-$#,##0.00"
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($H$19=\"Free Bet\",\"Free Bet Conversion\",\"ROI On Total Cash\")"
+                  },
+                  "formattedValue": "ROI On Total Cash"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF(OR($C$23=\"\",$H$22=\"\"),\"\",IF($H$19=\"Free Bet\",IF($H$21=0,\"\",$C$23/$H$21),IF($H$22=0,\"\",$C$23/$H$22)))"
+                  },
+                  "formattedValue": "3.77%",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "PERCENT",
+                      "pattern": "0.00%"
+                    }
+                  }
+                }
+              ]
+            },
+            {},
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "KALSHI \u2022 KALSHI"
+                  },
+                  "formattedValue": "KALSHI \u2022 KALSHI",
+                  "dataValidation": {
+                    "condition": {
+                      "type": "ONE_OF_LIST",
+                      "values": [
+                        {
+                          "userEnteredValue": "KALSHI \u2022 KALSHI"
+                        },
+                        {
+                          "userEnteredValue": "KALSHI \u2022 NOVIG"
+                        },
+                        {
+                          "userEnteredValue": "KALSHI \u2022 PROPHETX"
+                        },
+                        {
+                          "userEnteredValue": "NOVIG \u2022 KALSHI"
+                        },
+                        {
+                          "userEnteredValue": "NOVIG \u2022 NOVIG"
+                        },
+                        {
+                          "userEnteredValue": "NOVIG \u2022 PROPHETX"
+                        },
+                        {
+                          "userEnteredValue": "PROPHETX \u2022 KALSHI"
+                        },
+                        {
+                          "userEnteredValue": "PROPHETX \u2022 NOVIG"
+                        },
+                        {
+                          "userEnteredValue": "PROPHETX \u2022 PROPHETX"
+                        }
+                      ]
+                    },
+                    "strict": true,
+                    "showCustomUi": true
+                  }
+                }
+              ]
+            },
+            {},
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=LET(tA,$A$25,sep,FIND(\" \u2022 \",tA),vA,LEFT(tA,sep-1),vB,MID(tA,sep+3,20),nA,IF(vA=\"KALSHI\",\"Kalshi\",IF(vA=\"NOVIG\",\"Novig\",\"ProphetX\")),nBn,IF(vB=\"KALSHI\",\"Kalshi\",IF(vB=\"NOVIG\",\"Novig\",\"ProphetX\")),same,vA=vB,IF(same,\"Side A Price\",nA&\" Price\"))"
+                  },
+                  "formattedValue": "Side A Price"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "numberValue": 75.45
+                  },
+                  "formattedValue": "75.45\u00a2",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "0.00\"\u00a2\""
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=LET(tA,$A$25,sep,FIND(\" \u2022 \",tA),vA,LEFT(tA,sep-1),vB,MID(tA,sep+3,20),nA,IF(vA=\"KALSHI\",\"Kalshi\",IF(vA=\"NOVIG\",\"Novig\",\"ProphetX\")),nBn,IF(vB=\"KALSHI\",\"Kalshi\",IF(vB=\"NOVIG\",\"Novig\",\"ProphetX\")),same,vA=vB,IF(same,\"Side B Execution\",nBn&\" Execution\"))"
+                  },
+                  "formattedValue": "Side B Execution"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Pre-Match / Maker"
+                  },
+                  "formattedValue": "Pre-Match / Maker",
+                  "dataValidation": {
+                    "condition": {
+                      "type": "ONE_OF_RANGE",
+                      "values": [
+                        {
+                          "userEnteredValue": "='ARB LISTS'!$D$1:$D$4"
+                        }
+                      ]
+                    },
+                    "strict": true,
+                    "showCustomUi": true
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=LET(tA,$A$25,sep,FIND(\" \u2022 \",tA),vA,LEFT(tA,sep-1),vB,MID(tA,sep+3,20),nA,IF(vA=\"KALSHI\",\"Kalshi\",IF(vA=\"NOVIG\",\"Novig\",\"ProphetX\")),nBn,IF(vB=\"KALSHI\",\"Kalshi\",IF(vB=\"NOVIG\",\"Novig\",\"ProphetX\")),same,vA=vB,kA,vA=\"KALSHI\",kB,vB=\"KALSHI\",IF(same,IF(kA,\"Side A Contracts\",\"Side A Stake\"),nA&IF(kA,\" Contracts\",\" Stake\")))"
+                  },
+                  "formattedValue": "Side A Contracts"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "numberValue": 2915
+                  },
+                  "formattedValue": "2,915.0",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "#,##0.0"
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=LET(tA,$A$25,sep,FIND(\" \u2022 \",tA),vA,LEFT(tA,sep-1),vB,MID(tA,sep+3,20),nA,IF(vA=\"KALSHI\",\"Kalshi\",IF(vA=\"NOVIG\",\"Novig\",\"ProphetX\")),nBn,IF(vB=\"KALSHI\",\"Kalshi\",IF(vB=\"NOVIG\",\"Novig\",\"ProphetX\")),same,vA=vB,IF(same,\"Break Even B Price\",\"Break Even Price\"))"
+                  },
+                  "formattedValue": "Break Even B Price"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF(OR($C$27=\"\",$C$28=\"\",$C$30=\"\",$H$27=\"\"),\"\",LET(tA,$A$25,sep,FIND(\" \u2022 \",tA),vA,LEFT(tA,sep-1),vB,MID(tA,sep+3,20),kA,vA=\"KALSHI\",nvA,vA=\"NOVIG\",pxA,vA=\"PROPHETX\",kB,vB=\"KALSHI\",nvB,vB=\"NOVIG\",pxB,vB=\"PROPHETX\",pA,$C$27/100,pB,$C$29/100,n,IF(kA,$C$28,$C$28/pA),rateA,IF($C$30=\"MLB Maker\",0.00875,IF($C$30=\"MLB Taker\",0.035,IF($C$30=\"Maker\",0.0175,0.07))),cA,IF($C$30=\"Futures Taker\",0.06,IF(OR($C$30=\"Live Taker\",$C$30=\"Taker\"),0.03,0)),rateB,IF($H$27=\"MLB Maker\",0.00875,IF($H$27=\"MLB Taker\",0.035,IF($H$27=\"Maker\",0.0175,0.07))),cB,IF($H$27=\"Futures Taker\",0.06,IF(OR($H$27=\"Live Taker\",$H$27=\"Taker\"),0.03,0)),cashA,IF(kA,CEILING(ROUND(n*pA+CEILING(ROUND(rateA*n*pA*(1-pA),8),0.0001),8),0.01),IF(nvA,$C$28+ROUND(cA*pA*(1-pA)*n,5),$C$28)),Awin,IF(pxA,n*(1-pA)-ROUND(0.02*n*(1-pA),2),n-cashA),fB,IF(pxB,0.02,0),nB,IF(kA,n/(1-fB*(1-pB)),(Awin+cashA)/(1-fB*(1-pB))),SB,ROUND(nB*pB,2),nBf,IF(kB,nB,SB/pB),cashB,IF(kB,CEILING(ROUND(nB*pB+CEILING(ROUND(rateB*nB*pB*(1-pB),8),0.0001),8),0.01),IF(nvB,SB+ROUND(cB*pB*(1-pB)*nBf,5),SB)),Bwin,IF(pxB,(nBf-SB)-ROUND(0.02*(nBf-SB),2),nBf-cashB),IF(OR(n<=0,Awin<=0),0,IF(kB,LET(lim,Awin,debit_b,LAMBDA(px,CEILING(ROUND(nB*px+CEILING(ROUND(rateB*nB*px*(1-px),8),0.0001),8),0.01)),raw_root,((1+rateB)-SQRT(MAX(0,(1+rateB)^2-4*rateB*lim/nB)))/(2*rateB),start_price,MAX(0.0001,FLOOR(raw_root,0.0001)-0.05),prices,SEQUENCE(501,1,start_price,0.0001),debits,MAP(prices,LAMBDA(px,debit_b(px))),100*IFERROR(MAX(FILTER(prices,(prices<=0.9999)*(debits<=lim))),0)),IF(nvB,LET(q,Awin/(Awin+cashA),root,IF(cB=0,q,((1+cB)-SQRT(MAX(0,(1+cB)^2-4*cB*q)))/(2*cB)),100*MAX(0,MIN(0.9999,FLOOR(root,0.0001)))),100*MAX(0,MIN(0.9999,FLOOR(0.98*Awin/(0.98*Awin+cashA),0.0001))))))))"
+                  },
+                  "formattedValue": "22.98\u00a2",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "0.00\"\u00a2\""
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=LET(tA,$A$25,sep,FIND(\" \u2022 \",tA),vA,LEFT(tA,sep-1),vB,MID(tA,sep+3,20),nA,IF(vA=\"KALSHI\",\"Kalshi\",IF(vA=\"NOVIG\",\"Novig\",\"ProphetX\")),nBn,IF(vB=\"KALSHI\",\"Kalshi\",IF(vB=\"NOVIG\",\"Novig\",\"ProphetX\")),same,vA=vB,IF(same,\"Side B Price\",nBn&\" Price\"))"
+                  },
+                  "formattedValue": "Side B Price"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "numberValue": 13.79
+                  },
+                  "formattedValue": "13.79\u00a2",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "0.00\"\u00a2\""
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=LET(tA,$A$25,sep,FIND(\" \u2022 \",tA),vA,LEFT(tA,sep-1),vB,MID(tA,sep+3,20),nA,IF(vA=\"KALSHI\",\"Kalshi\",IF(vA=\"NOVIG\",\"Novig\",\"ProphetX\")),nBn,IF(vB=\"KALSHI\",\"Kalshi\",IF(vB=\"NOVIG\",\"Novig\",\"ProphetX\")),same,vA=vB,kA,vA=\"KALSHI\",kB,vB=\"KALSHI\",IF(same,IF(kB,\"Side B Contracts\",\"Side B Stake\"),nBn&IF(kB,\" Contracts\",\" Stake\")))"
+                  },
+                  "formattedValue": "Side B Contracts"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF(OR($C$27=\"\",$C$28=\"\",$C$29=\"\",$C$30=\"\",$H$27=\"\"),\"\",LET(tA,$A$25,sep,FIND(\" \u2022 \",tA),vA,LEFT(tA,sep-1),vB,MID(tA,sep+3,20),kA,vA=\"KALSHI\",nvA,vA=\"NOVIG\",pxA,vA=\"PROPHETX\",kB,vB=\"KALSHI\",nvB,vB=\"NOVIG\",pxB,vB=\"PROPHETX\",pA,$C$27/100,pB,$C$29/100,n,IF(kA,$C$28,$C$28/pA),rateA,IF($C$30=\"MLB Maker\",0.00875,IF($C$30=\"MLB Taker\",0.035,IF($C$30=\"Maker\",0.0175,0.07))),cA,IF($C$30=\"Futures Taker\",0.06,IF(OR($C$30=\"Live Taker\",$C$30=\"Taker\"),0.03,0)),rateB,IF($H$27=\"MLB Maker\",0.00875,IF($H$27=\"MLB Taker\",0.035,IF($H$27=\"Maker\",0.0175,0.07))),cB,IF($H$27=\"Futures Taker\",0.06,IF(OR($H$27=\"Live Taker\",$H$27=\"Taker\"),0.03,0)),cashA,IF(kA,CEILING(ROUND(n*pA+CEILING(ROUND(rateA*n*pA*(1-pA),8),0.0001),8),0.01),IF(nvA,$C$28+ROUND(cA*pA*(1-pA)*n,5),$C$28)),Awin,IF(pxA,n*(1-pA)-ROUND(0.02*n*(1-pA),2),n-cashA),fB,IF(pxB,0.02,0),nB,IF(kA,n/(1-fB*(1-pB)),(Awin+cashA)/(1-fB*(1-pB))),SB,ROUND(nB*pB,2),nBf,IF(kB,nB,SB/pB),cashB,IF(kB,CEILING(ROUND(nB*pB+CEILING(ROUND(rateB*nB*pB*(1-pB),8),0.0001),8),0.01),IF(nvB,SB+ROUND(cB*pB*(1-pB)*nBf,5),SB)),Bwin,IF(pxB,(nBf-SB)-ROUND(0.02*(nBf-SB),2),nBf-cashB),IF(kB,nB,SB)))"
+                  },
+                  "formattedValue": "2,915.0",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "#,##0.0"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=LET(tA,$A$25,sep,FIND(\" \u2022 \",tA),vA,LEFT(tA,sep-1),vB,MID(tA,sep+3,20),nA,IF(vA=\"KALSHI\",\"Kalshi\",IF(vA=\"NOVIG\",\"Novig\",\"ProphetX\")),nBn,IF(vB=\"KALSHI\",\"Kalshi\",IF(vB=\"NOVIG\",\"Novig\",\"ProphetX\")),same,vA=vB,IF(same,\"Side A Execution\",nA&\" Execution\"))"
+                  },
+                  "formattedValue": "Side A Execution"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Maker"
+                  },
+                  "formattedValue": "Maker",
+                  "dataValidation": {
+                    "condition": {
+                      "type": "ONE_OF_RANGE",
+                      "values": [
+                        {
+                          "userEnteredValue": "='ARB LISTS'!$C$1:$C$4"
+                        }
+                      ]
+                    },
+                    "strict": true,
+                    "showCustomUi": true
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Total Cash Required"
+                  },
+                  "formattedValue": "Total Cash Required"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF(OR($C$27=\"\",$C$28=\"\",$C$29=\"\",$C$30=\"\",$H$27=\"\"),\"\",LET(tA,$A$25,sep,FIND(\" \u2022 \",tA),vA,LEFT(tA,sep-1),vB,MID(tA,sep+3,20),kA,vA=\"KALSHI\",nvA,vA=\"NOVIG\",pxA,vA=\"PROPHETX\",kB,vB=\"KALSHI\",nvB,vB=\"NOVIG\",pxB,vB=\"PROPHETX\",pA,$C$27/100,pB,$C$29/100,n,IF(kA,$C$28,$C$28/pA),rateA,IF($C$30=\"MLB Maker\",0.00875,IF($C$30=\"MLB Taker\",0.035,IF($C$30=\"Maker\",0.0175,0.07))),cA,IF($C$30=\"Futures Taker\",0.06,IF(OR($C$30=\"Live Taker\",$C$30=\"Taker\"),0.03,0)),rateB,IF($H$27=\"MLB Maker\",0.00875,IF($H$27=\"MLB Taker\",0.035,IF($H$27=\"Maker\",0.0175,0.07))),cB,IF($H$27=\"Futures Taker\",0.06,IF(OR($H$27=\"Live Taker\",$H$27=\"Taker\"),0.03,0)),cashA,IF(kA,CEILING(ROUND(n*pA+CEILING(ROUND(rateA*n*pA*(1-pA),8),0.0001),8),0.01),IF(nvA,$C$28+ROUND(cA*pA*(1-pA)*n,5),$C$28)),Awin,IF(pxA,n*(1-pA)-ROUND(0.02*n*(1-pA),2),n-cashA),fB,IF(pxB,0.02,0),nB,IF(kA,n/(1-fB*(1-pB)),(Awin+cashA)/(1-fB*(1-pB))),SB,ROUND(nB*pB,2),nBf,IF(kB,nB,SB/pB),cashB,IF(kB,CEILING(ROUND(nB*pB+CEILING(ROUND(rateB*nB*pB*(1-pB),8),0.0001),8),0.01),IF(nvB,SB+ROUND(cB*pB*(1-pB)*nBf,5),SB)),Bwin,IF(pxB,(nBf-SB)-ROUND(0.02*(nBf-SB),2),nBf-cashB),ROUND(cashA+cashB,2)))"
+                  },
+                  "formattedValue": "$2,635.06",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "CURRENCY",
+                      "pattern": "$#,##0.00;-$#,##0.00"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Guaranteed Profit"
+                  },
+                  "formattedValue": "Guaranteed Profit"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($H$30=\"\",\"\",LET(tA,$A$25,sep,FIND(\" \u2022 \",tA),vA,LEFT(tA,sep-1),vB,MID(tA,sep+3,20),kA,vA=\"KALSHI\",nvA,vA=\"NOVIG\",pxA,vA=\"PROPHETX\",kB,vB=\"KALSHI\",nvB,vB=\"NOVIG\",pxB,vB=\"PROPHETX\",pA,$C$27/100,pB,$C$29/100,n,IF(kA,$C$28,$C$28/pA),rateA,IF($C$30=\"MLB Maker\",0.00875,IF($C$30=\"MLB Taker\",0.035,IF($C$30=\"Maker\",0.0175,0.07))),cA,IF($C$30=\"Futures Taker\",0.06,IF(OR($C$30=\"Live Taker\",$C$30=\"Taker\"),0.03,0)),rateB,IF($H$27=\"MLB Maker\",0.00875,IF($H$27=\"MLB Taker\",0.035,IF($H$27=\"Maker\",0.0175,0.07))),cB,IF($H$27=\"Futures Taker\",0.06,IF(OR($H$27=\"Live Taker\",$H$27=\"Taker\"),0.03,0)),cashA,IF(kA,CEILING(ROUND(n*pA+CEILING(ROUND(rateA*n*pA*(1-pA),8),0.0001),8),0.01),IF(nvA,$C$28+ROUND(cA*pA*(1-pA)*n,5),$C$28)),Awin,IF(pxA,n*(1-pA)-ROUND(0.02*n*(1-pA),2),n-cashA),fB,IF(pxB,0.02,0),nB,IF(kA,n/(1-fB*(1-pB)),(Awin+cashA)/(1-fB*(1-pB))),SB,ROUND(nB*pB,2),nBf,IF(kB,nB,SB/pB),cashB,IF(kB,CEILING(ROUND(nB*pB+CEILING(ROUND(rateB*nB*pB*(1-pB),8),0.0001),8),0.01),IF(nvB,SB+ROUND(cB*pB*(1-pB)*nBf,5),SB)),Bwin,IF(pxB,(nBf-SB)-ROUND(0.02*(nBf-SB),2),nBf-cashB),ROUND(MIN(Awin-cashB,Bwin-cashA),2)))"
+                  },
+                  "formattedValue": "$279.94",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "CURRENCY",
+                      "pattern": "$#,##0.00;-$#,##0.00"
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "ROI On Total Cash"
+                  },
+                  "formattedValue": "ROI On Total Cash"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF(OR($C$31=\"\",$H$30=\"\"),\"\",$C$31/$H$30)"
+                  },
+                  "formattedValue": "10.62%",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "PERCENT",
+                      "pattern": "0.00%"
+                    }
+                  }
+                }
+              ]
+            },
+            {},
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "KALSHI \u2022 NOVIG \u2022 PROPHETX \u2022 AMERICAN ODDS AFTER FEES"
+                  },
+                  "formattedValue": "KALSHI \u2022 NOVIG \u2022 PROPHETX \u2022 AMERICAN ODDS AFTER FEES"
+                }
+              ]
+            },
+            {},
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Kalshi Price"
+                  },
+                  "formattedValue": "Kalshi Price"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "numberValue": 47
+                  },
+                  "formattedValue": "47.00\u00a2",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "0.00\"\u00a2\""
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Maker"
+                  },
+                  "formattedValue": "Maker"
+                },
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($C$35=\"\",\"\",LET(p,$C$35/100,cost,CEILING(p+0.0175*p*(1-p),0.0001),IF(cost<=0.5,ROUND(100*(1-cost)/cost,1),-ROUND(100*cost/(1-cost),1))))"
+                  },
+                  "formattedValue": "+110.8",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "+#,##0.0;-#,##0.0;+0.0"
+                    }
+                  }
+                },
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Taker"
+                  },
+                  "formattedValue": "Taker"
+                },
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($C$35=\"\",\"\",LET(p,$C$35/100,cost,CEILING(p+0.07*p*(1-p),0.0001),IF(cost<=0.5,ROUND(100*(1-cost)/cost,1),-ROUND(100*cost/(1-cost),1))))"
+                  },
+                  "formattedValue": "+105.1",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "+#,##0.0;-#,##0.0;+0.0"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Novig Price"
+                  },
+                  "formattedValue": "Novig Price"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "numberValue": 85
+                  },
+                  "formattedValue": "85.00\u00a2",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "0.00\"\u00a2\""
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Pre-Match"
+                  },
+                  "formattedValue": "Pre-Match"
+                },
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($C$36=\"\",\"\",LET(p,$C$36/100,IF(p<=0.5,ROUND(100*(1-p)/p,1),-ROUND(100*p/(1-p),1))))"
+                  },
+                  "formattedValue": "-566.7",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "+#,##0.0;-#,##0.0;+0.0"
+                    }
+                  }
+                },
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Live Taker"
+                  },
+                  "formattedValue": "Live Taker"
+                },
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($C$36=\"\",\"\",LET(p,$C$36/100,cost,p+0.03*p*(1-p),IF(cost<=0.5,ROUND(100*(1-cost)/cost,1),-ROUND(100*cost/(1-cost),1))))"
+                  },
+                  "formattedValue": "-584.1",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "+#,##0.0;-#,##0.0;+0.0"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "values": [
+                {
+                  "userEnteredValue": {
+                    "stringValue": "ProphetX Price"
+                  },
+                  "formattedValue": "ProphetX Price"
+                },
+                {},
+                {
+                  "userEnteredValue": {
+                    "numberValue": 64.52
+                  },
+                  "formattedValue": "64.52\u00a2",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "0.00\"\u00a2\""
+                    }
+                  }
+                },
+                {},
+                {},
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Maker"
+                  },
+                  "formattedValue": "Maker"
+                },
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($C$37=\"\",\"\",LET(p,$C$37/100,win,(1-p)*0.98,IF(win>=p,ROUND(100*win/p,1),-ROUND(100*p/win,1))))"
+                  },
+                  "formattedValue": "-185.6",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "+#,##0.0;-#,##0.0;+0.0"
+                    }
+                  }
+                },
+                {
+                  "userEnteredValue": {
+                    "stringValue": "Taker"
+                  },
+                  "formattedValue": "Taker"
+                },
+                {
+                  "userEnteredValue": {
+                    "formulaValue": "=IF($C$37=\"\",\"\",LET(p,$C$37/100,win,(1-p)*0.98,IF(win>=p,ROUND(100*win/p,1),-ROUND(100*p/win,1))))"
+                  },
+                  "formattedValue": "-185.6",
+                  "effectiveFormat": {
+                    "numberFormat": {
+                      "type": "NUMBER",
+                      "pattern": "+#,##0.0;-#,##0.0;+0.0"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 14,
+          "endRowIndex": 15,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 14,
+          "endRowIndex": 15,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 14,
+          "endRowIndex": 15,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 14,
+          "endRowIndex": 15,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 16,
+          "endRowIndex": 17,
+          "startColumnIndex": 0,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 18,
+          "endRowIndex": 19,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 18,
+          "endRowIndex": 19,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 19,
+          "endRowIndex": 20,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 19,
+          "endRowIndex": 20,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 19,
+          "endRowIndex": 20,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 19,
+          "endRowIndex": 20,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 20,
+          "endRowIndex": 21,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 20,
+          "endRowIndex": 21,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 20,
+          "endRowIndex": 21,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 22,
+          "endRowIndex": 23,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 22,
+          "endRowIndex": 23,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 20,
+          "endRowIndex": 21,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 21,
+          "endRowIndex": 22,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 21,
+          "endRowIndex": 22,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 21,
+          "endRowIndex": 22,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 21,
+          "endRowIndex": 22,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 22,
+          "endRowIndex": 23,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 24,
+          "endRowIndex": 25,
+          "startColumnIndex": 0,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 27,
+          "endRowIndex": 28,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 27,
+          "endRowIndex": 28,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 22,
+          "endRowIndex": 23,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 26,
+          "endRowIndex": 27,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 26,
+          "endRowIndex": 27,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 26,
+          "endRowIndex": 27,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 26,
+          "endRowIndex": 27,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 27,
+          "endRowIndex": 28,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 27,
+          "endRowIndex": 28,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 28,
+          "endRowIndex": 29,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 28,
+          "endRowIndex": 29,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 28,
+          "endRowIndex": 29,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 28,
+          "endRowIndex": 29,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 29,
+          "endRowIndex": 30,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 29,
+          "endRowIndex": 30,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 29,
+          "endRowIndex": 30,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 29,
+          "endRowIndex": 30,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 30,
+          "endRowIndex": 31,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 30,
+          "endRowIndex": 31,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 30,
+          "endRowIndex": 31,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 30,
+          "endRowIndex": 31,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 32,
+          "endRowIndex": 33,
+          "startColumnIndex": 0,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 34,
+          "endRowIndex": 35,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 3,
+          "endRowIndex": 4,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 4,
+          "endRowIndex": 5,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 5,
+          "endRowIndex": 6,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 5,
+          "endRowIndex": 6,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 6,
+          "endRowIndex": 7,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 6,
+          "endRowIndex": 7,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 0,
+          "endRowIndex": 1,
+          "startColumnIndex": 0,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 1,
+          "endRowIndex": 2,
+          "startColumnIndex": 0,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 3,
+          "endRowIndex": 4,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 3,
+          "endRowIndex": 4,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 3,
+          "endRowIndex": 4,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 4,
+          "endRowIndex": 5,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 4,
+          "endRowIndex": 5,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 10,
+          "endRowIndex": 11,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 10,
+          "endRowIndex": 11,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 11,
+          "endRowIndex": 12,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 11,
+          "endRowIndex": 12,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 12,
+          "endRowIndex": 13,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 12,
+          "endRowIndex": 13,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 13,
+          "endRowIndex": 14,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 13,
+          "endRowIndex": 14,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 4,
+          "endRowIndex": 5,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 5,
+          "endRowIndex": 6,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 5,
+          "endRowIndex": 6,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 6,
+          "endRowIndex": 7,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 6,
+          "endRowIndex": 7,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 8,
+          "endRowIndex": 9,
+          "startColumnIndex": 0,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 10,
+          "endRowIndex": 11,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 10,
+          "endRowIndex": 11,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 11,
+          "endRowIndex": 12,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 11,
+          "endRowIndex": 12,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 12,
+          "endRowIndex": 13,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 12,
+          "endRowIndex": 13,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 13,
+          "endRowIndex": 14,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 13,
+          "endRowIndex": 14,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 18,
+          "endRowIndex": 19,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 18,
+          "endRowIndex": 19,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 34,
+          "endRowIndex": 35,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 35,
+          "endRowIndex": 36,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 35,
+          "endRowIndex": 36,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 36,
+          "endRowIndex": 37,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        },
+        {
+          "sheetId": 394391295,
+          "startRowIndex": 36,
+          "endRowIndex": 37,
+          "startColumnIndex": 2,
+          "endColumnIndex": 4
+        }
+      ],
+      "conditionalFormats": [
+        {
+          "ranges": [
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 5,
+              "endRowIndex": 6,
+              "startColumnIndex": 7,
+              "endColumnIndex": 9
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 6,
+              "endRowIndex": 7,
+              "startColumnIndex": 2,
+              "endColumnIndex": 4
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 14,
+              "endRowIndex": 15,
+              "startColumnIndex": 2,
+              "endColumnIndex": 4
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 14,
+              "endRowIndex": 15,
+              "startColumnIndex": 7,
+              "endColumnIndex": 9
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 22,
+              "endRowIndex": 23,
+              "startColumnIndex": 2,
+              "endColumnIndex": 4
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 22,
+              "endRowIndex": 23,
+              "startColumnIndex": 7,
+              "endColumnIndex": 9
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 30,
+              "endRowIndex": 31,
+              "startColumnIndex": 2,
+              "endColumnIndex": 4
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 30,
+              "endRowIndex": 31,
+              "startColumnIndex": 7,
+              "endColumnIndex": 9
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 34,
+              "endRowIndex": 37,
+              "startColumnIndex": 6,
+              "endColumnIndex": 7
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 34,
+              "endRowIndex": 37,
+              "startColumnIndex": 8,
+              "endColumnIndex": 9
+            }
+          ],
+          "booleanRule": {
+            "condition": {
+              "type": "NUMBER_GREATER",
+              "values": [
+                {
+                  "userEnteredValue": "0"
+                }
+              ]
+            },
+            "format": {
+              "backgroundColor": {
+                "red": 0.05882353,
+                "green": 0.14117648,
+                "blue": 0.09803922
+              },
+              "textFormat": {
+                "foregroundColor": {
+                  "red": 0.49411765,
+                  "green": 0.90588236,
+                  "blue": 0.5294118
+                },
+                "bold": true,
+                "foregroundColorStyle": {
+                  "rgbColor": {
+                    "red": 0.49411765,
+                    "green": 0.90588236,
+                    "blue": 0.5294118
+                  }
+                }
+              },
+              "backgroundColorStyle": {
+                "rgbColor": {
+                  "red": 0.05882353,
+                  "green": 0.14117648,
+                  "blue": 0.09803922
+                }
+              }
+            }
+          }
+        },
+        {
+          "ranges": [
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 5,
+              "endRowIndex": 6,
+              "startColumnIndex": 7,
+              "endColumnIndex": 9
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 6,
+              "endRowIndex": 7,
+              "startColumnIndex": 2,
+              "endColumnIndex": 4
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 14,
+              "endRowIndex": 15,
+              "startColumnIndex": 2,
+              "endColumnIndex": 4
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 14,
+              "endRowIndex": 15,
+              "startColumnIndex": 7,
+              "endColumnIndex": 9
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 22,
+              "endRowIndex": 23,
+              "startColumnIndex": 2,
+              "endColumnIndex": 4
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 22,
+              "endRowIndex": 23,
+              "startColumnIndex": 7,
+              "endColumnIndex": 9
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 30,
+              "endRowIndex": 31,
+              "startColumnIndex": 2,
+              "endColumnIndex": 4
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 30,
+              "endRowIndex": 31,
+              "startColumnIndex": 7,
+              "endColumnIndex": 9
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 34,
+              "endRowIndex": 37,
+              "startColumnIndex": 6,
+              "endColumnIndex": 7
+            },
+            {
+              "sheetId": 394391295,
+              "startRowIndex": 34,
+              "endRowIndex": 37,
+              "startColumnIndex": 8,
+              "endColumnIndex": 9
+            }
+          ],
+          "booleanRule": {
+            "condition": {
+              "type": "NUMBER_LESS",
+              "values": [
+                {
+                  "userEnteredValue": "0"
+                }
+              ]
+            },
+            "format": {
+              "backgroundColor": {
+                "red": 0.16862746,
+                "green": 0.08627451,
+                "blue": 0.101960786
+              },
+              "textFormat": {
+                "foregroundColor": {
+                  "red": 1,
+                  "green": 0.627451,
+                  "blue": 0.6039216
+                },
+                "bold": true,
+                "foregroundColorStyle": {
+                  "rgbColor": {
+                    "red": 1,
+                    "green": 0.627451,
+                    "blue": 0.6039216
+                  }
+                }
+              },
+              "backgroundColorStyle": {
+                "rgbColor": {
+                  "red": 0.16862746,
+                  "green": 0.08627451,
+                  "blue": 0.101960786
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
