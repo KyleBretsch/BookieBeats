@@ -87,7 +87,17 @@ guard_check_credentials() {
 #   1. $PII_DENYLIST if set        (explicit override, used by tests and by the canary)
 #   2. ~/.claude/pii-denylist      (shared CREDIT-DOMAIN list; only if this repo opts in, below)
 #   3. $root/.pii-denylist         (the repo's own list; always read)
+#   4. <main checkout>/.pii-denylist   (only from a LINKED WORKTREE; added 2026-09-18, below)
 # Both 2 and 3 are read when both apply, because a repo may carry extra local terms.
+#
+# A LINKED WORKTREE HAS NO LIST OF ITS OWN.  The list is gitignored and per machine, so
+# `git worktree add` does not carry it, and $root there is the worktree.  Measured 2026-09-18 in a
+# MachineOps worktree: this check ran against ZERO terms and accepted a canary the main checkout
+# blocked, with no output -- the 07-28 "green install, zero terms" failure in a new place.
+# ~/CLAUDE.md sends a second session to a worktree, so this is the sanctioned path, not an edge.
+# The first entry of `git worktree list` is always the main worktree, so its list is read too.
+# test-guard.sh holds the case, and it runs with $PII_DENYLIST unset, because the override is
+# what hid this from every earlier test.
 #
 # THE SHARED LIST IS OPT-IN, and that is a measured decision, not caution.  A blunt union of all
 # seven lists was built and tested first: 233 terms, and it hit 72 places in ALREADY-TRACKED
@@ -108,11 +118,23 @@ guard_check_credentials() {
 # Windows machine can SIGABRT on it.  Literal matching means the caller must list the hyphenated
 # and concatenated variants of a name separately.
 # ---------------------------------------------------------------------------------------------
+guard_main_root() {
+  local line
+  line="$(git worktree list --porcelain 2>/dev/null | head -1)"
+  case "$line" in "worktree "*) printf '%s\n' "${line#worktree }" ;; esac
+  return 0
+}
+
 guard_denylist_files() {
+  local main
   [ -n "${PII_DENYLIST:-}" ] && [ -f "$PII_DENYLIST" ] && printf '%s\n' "$PII_DENYLIST"
   [ -f "$g_root/.githooks/shared-denylist" ] && [ -f "$HOME/.claude/pii-denylist" ] \
     && printf '%s\n' "$HOME/.claude/pii-denylist"
   [ -f "$g_root/.pii-denylist" ] && printf '%s\n' "$g_root/.pii-denylist"
+  main="$(guard_main_root)"
+  if [ -n "$main" ] && [ "$main" != "$g_root" ] && [ -f "$main/.pii-denylist" ]; then
+    printf '%s\n' "$main/.pii-denylist"
+  fi
   return 0
 }
 

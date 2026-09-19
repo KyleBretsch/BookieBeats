@@ -32,6 +32,15 @@ first(){ printf '%s' "$msg" | grep -Eio "$1" 2>/dev/null | head -1; }
 # 1) Borrower-term denylist (local, gitignored) — literal case-insensitive substring,
 #    same source of truth as the pre-commit content guard.
 deny="$root/.pii-denylist"
+# A linked worktree has no list of its own: the list is gitignored and per machine, so it lives
+# only in the main checkout, and $root here is the worktree. Measured 2026-09-18: from a worktree
+# this check ran against zero terms while the main checkout blocked the same message. The first
+# `git worktree list` entry is always the main checkout. Same rule as guard_denylist_files.
+if [ ! -f "$deny" ]; then
+  mainwt="$(git worktree list --porcelain 2>/dev/null | head -1)"
+  case "$mainwt" in "worktree "*) mainwt="${mainwt#worktree }" ;; *) mainwt="" ;; esac
+  [ -n "$mainwt" ] && [ -f "$mainwt/.pii-denylist" ] && deny="$mainwt/.pii-denylist"
+fi
 if [ -f "$deny" ]; then
   while IFS= read -r term || [ -n "$term" ]; do
     term="$(printf '%s' "$term" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
