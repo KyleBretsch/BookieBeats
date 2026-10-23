@@ -29,19 +29,23 @@ wrn(){ echo "note   (commit message): $1" >&2; }
 has(){ [ -n "$(printf '%s' "$msg" | grep -Eio "$1" 2>/dev/null | head -1)" ]; }
 first(){ printf '%s' "$msg" | grep -Eio "$1" 2>/dev/null | head -1; }
 
-# 1) Borrower-term denylist (local, gitignored) — literal case-insensitive substring,
-#    same source of truth as the pre-commit content guard.
-deny="$root/.pii-denylist"
-# A linked worktree has no list of its own: the list is gitignored and per machine, so it lives
-# only in the main checkout, and $root here is the worktree. Measured 2026-09-18: from a worktree
-# this check ran against zero terms while the main checkout blocked the same message. The first
-# `git worktree list` entry is always the main checkout. Same rule as guard_denylist_files.
-if [ ! -f "$deny" ]; then
-  mainwt="$(git worktree list --porcelain 2>/dev/null | head -1)"
-  case "$mainwt" in "worktree "*) mainwt="${mainwt#worktree }" ;; *) mainwt="" ;; esac
-  [ -n "$mainwt" ] && [ -f "$mainwt/.pii-denylist" ] && deny="$mainwt/.pii-denylist"
+# 1) Borrower-term denylist (local, gitignored) — literal case-insensitive substring.
+#    The lists come from guard_denylist_files in the vendored lib, so a message is checked against
+#    exactly what the pre-commit content guard reads: the shared credit list when this repo opts in,
+#    the repo's own list, and the main checkout's list from a linked worktree. Until 2026-10-23 this
+#    hook kept its own copy of that lookup and never read the shared list, which is where deal intake
+#    has written new borrower names since 2026-07-28. Measured that day: 208 to 239 of the shared
+#    list's 275 terms were missing from each opted-in credit repo's own list, so a message naming one
+#    passed while a file naming it blocked.
+lib="$root/.githooks/lib/guard-common.sh"
+if [ ! -f "$lib" ]; then
+  echo "BLOCKED (commit message): $lib is missing, so the borrower-term check cannot run." >&2
+  exit 1
 fi
-if [ -f "$deny" ]; then
+. "$lib"
+g_root="$root"
+while IFS= read -r deny; do
+  [ -z "$deny" ] && continue
   while IFS= read -r term || [ -n "$term" ]; do
     term="$(printf '%s' "$term" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
     [ -z "$term" ] && continue
@@ -49,7 +53,7 @@ if [ -f "$deny" ]; then
     tl="$(printf '%s' "$term" | tr 'A-Z' 'a-z')"
     case "$msg_lc" in *"$tl"*) blk "references a denylisted borrower term (\"$term\")." ;; esac
   done < "$deny"
-fi
+done < <(guard_denylist_files)
 
 # 2) Structured identifiers.
 has '[0-9]{3}-[0-9]{2}-[0-9]{4}'  && blk "contains an SSN-like pattern (NNN-NN-NNNN)."
