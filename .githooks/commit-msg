@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-# Pinnacle commit-MESSAGE confidentiality guard (GLBA / borrower NPI).
+# Commit-MESSAGE confidentiality guard (GLBA / borrower NPI).
+# Canonical copy: MachineOps/scripts/githooks/commit-msg. guard-sync.sh vendors it into every guarded
+# repo that already carries a commit-msg, and guard-audit.sh reports a copy that drifts. Edit it there,
+# never in a repo: until 2026-10-23 the ten copies were maintained by hand, and the shared credit list
+# that pre-commit read since 2026-07-28 never reached any of them.
 #
 # Companion to .githooks/pre-commit, which scans staged FILE content. This scans the
 # commit MESSAGE — the recurring blind spot. A borrower P&L, cap rate, or relational
